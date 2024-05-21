@@ -84,6 +84,19 @@ module.exports.updateListing = async (req, res) => {
   res.redirect(`/listings/${id}`);
 };
 
+//filter Listing
+module.exports.filterListings = async (req, res, next) => {
+  const { q } = req.params;
+  const filteredListings = await Listing.find({category: q }).exec();
+  if (!filteredListings.length) {
+      req.flash("error", "No Listings exists for this filter!");
+      res.redirect("/listings");
+      return;
+  }
+  res.locals.success = `Listings Filtered by ${q}`;
+  res.render("listings/index.ejs", { allListings: filteredListings });
+}
+
 module.exports.destroyListing = async (req, res) => {
     let { id } = req.params;
     let deletedListing = await Listing.findByIdAndDelete(id);
@@ -92,3 +105,26 @@ module.exports.destroyListing = async (req, res) => {
     
     res.redirect("/listings");
 };
+
+
+module.exports.search = async (req, res) => {
+  console.log(req.query);
+  const { query } = req.query;
+  if (!query) {
+    // return res.status(400).send("No search query provided");
+    req.flash("error", "Search value empty!!!");
+    res.redirect("/listings");
+  }
+  try {
+    const allListings = await Listing.find({
+        $or: [
+            { title: { $regex: query, $options: "i" } },
+            { description: { $regex: query, $options: "i" } },
+            { location: { $regex: query, $options: "i" } }
+        ]
+    });
+    res.render("listings/index.ejs", { allListings ,query});
+} catch (err) {
+    res.status(500).send(err.message);
+}
+}
