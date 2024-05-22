@@ -240,7 +240,9 @@ body{
         padding: 0rem 0 0 1rem;
     }
 
-    
+    .filters{
+        gap:0 !important;
+    }
     
 }
 
