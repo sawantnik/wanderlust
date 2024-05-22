@@ -243,6 +243,25 @@ body{
     .filters{
         gap:0 !important;
     }
+
+    .login-input, .password-input{
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+   .signup-input{
+        width: 100% !important;
+        margin: 0 !important;
+   }
+
+   .signup-title{
+    font-size: 1.5rem;
+   }
+
+   .edit-inp, .comment-section{
+    width: 100% !important;
+    margin: 0 !important;
+   }
     
 }
 
