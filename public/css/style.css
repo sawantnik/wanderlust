@@ -55,6 +55,7 @@ body{
 
 #hamburger-menu i {
     display: flex;
+    
 }
 
  .nav-links {
@@ -208,6 +209,41 @@ body{
 
 
 /* MEDIA QUERIES */
+
+@media screen and (max-width: 480px){
+
+    .fa-compass{
+        font-size: 2rem;
+    }
+
+    .form-control{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 49% !important;
+        margin-left: 2rem !important;
+    }
+
+   
+    .navbar-nav{
+        margin-left: 2rem;
+        padding-left: 2rem;
+    }
+
+    .fa-magnifying-glass{
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .fa-bars{
+        font-size: 2rem;
+        padding: 0rem 0 0 1rem;
+    }
+
+    
+    
+}
+
 
 @media screen and (max-width: 576px){
     #listing_image{
