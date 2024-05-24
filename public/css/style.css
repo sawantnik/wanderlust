@@ -147,7 +147,7 @@ body{
 
 #listing_image img {
     height: 100%;
-    width: 100%;
+    width: 70%;
     object-position: center;
 }
 
@@ -210,15 +210,20 @@ body{
 
 /* MEDIA QUERIES */
 
+
+
+
 @media screen and (max-width: 480px){
 
     .fa-compass{
         font-size: 2rem;
     }
 
+    
+
     .form-control{
         display: flex;
-        align-items: center;
+       align-items: center;
         justify-content: center;
         width: 49% !important;
         margin-left: 2rem !important;
@@ -285,6 +290,10 @@ body{
         padding-left: 0.7rem;
     }
 
+    #listing_image img {
+        height: 100% !important;
+        width: 100% !important;
+    } 
    
 
     #map{
